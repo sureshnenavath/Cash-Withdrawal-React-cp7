@@ -24,13 +24,13 @@
   color: white;
   justify-content: space-between;
 }
-.balance-section-heading-div{
+.balance-section-heading-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.balance-section-heading {
+.balance-section-para {
   font-size: 15px;
 }
 .withdrawal-section {

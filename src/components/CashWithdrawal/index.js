@@ -4,10 +4,12 @@ import DenominationItemComponent from '../DenominationItem'
 
 const CashWithdrawal = props => {
   const {denominationsList} = props
-  const [balance, serBalance] = useState(2000)
+  const [balance, setBalance] = useState(2000)
+
   const balanceWithdrawButton = value => {
-    serBalance(prevBalance => prevBalance - value)
+    setBalance(prevBalance => prevBalance - value)
   }
+
   return (
     <div className="main-container">
       <div className="container">
@@ -17,21 +19,22 @@ const CashWithdrawal = props => {
             className="profile-pic"
             alt="Picture"
           />
-          <p>Saraha Williams</p>
+          <p>Sarah Williams</p>
         </div>
         <div className="balance-section">
           <div className="balance-section-heading-div">
-            <h1 className="balance-section-heading">Your Balance</h1>
+            <p className="balance-section-para">Your Balance</p>
           </div>
           <div>
-            <h1>{balance}</h1>
+            <p>{balance}</p>
             <p>In Rupees</p>
           </div>
         </div>
         <div className="withdrawal-section">
-          <h1 className="withdrawal-heading">withdraw</h1>
-          <p className="withdrawal-para">CHOOSE SUM(IN RUPEES)</p>
-          <div className="button-section">
+          <p className="withdrawal-heading">Withdraw</p>
+          <p className="withdrawal-para">CHOOSE SUM (IN RUPEES)</p>
+          {/* ✅ Wrap denominations in an unordered list */}
+          <ul className="button-section" role="list">
             {denominationsList.map(eachItem => (
               <DenominationItemComponent
                 key={eachItem.id}
@@ -39,7 +42,7 @@ const CashWithdrawal = props => {
                 balanceWithdrawButton={balanceWithdrawButton}
               />
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </div>
